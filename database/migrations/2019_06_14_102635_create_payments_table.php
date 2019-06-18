@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('order_id');
-            $table->unsignedBigInteger('offer_id');
+            $table->unsignedBigInteger('offer_id')->nullable();
             $table->enum('type', ['credit', 'debit']);
             $table->enum('status', ['processing', 'success', 'failed', 'partial', 'refund']);
             $table->double('amount', 8, 2);
@@ -25,7 +25,7 @@ class CreatePaymentsTable extends Migration
 
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->foreign('offer_id')->references('id')->on('offers')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('offer_id')->references('id')->on('offers')->onDelete('SET NULL')->onUpdate('CASCADE');
         });
     }
 
