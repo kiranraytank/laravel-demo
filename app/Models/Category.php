@@ -11,4 +11,10 @@ class Category extends Model
     public function menus() {
     	return $this->hasMany('\App\Models\Menu');
     }
+
+    public function getNameAttribute($value = '')
+    {
+    	// dump($value);
+    	return strtoupper($value);
+    }
 }
