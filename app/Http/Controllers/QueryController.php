@@ -51,6 +51,8 @@ class QueryController extends Controller
         $categories = Menu::select(['name', 'price', DB::raw('COUNT(*) AS total')])->groupBy('updated_at')->get();
         $categories = Menu::selectRaw('COUNT(*) AS total')->groupBy('updated_at')->get();
         $categories = Menu::whereRaw('price > 60 AND (category_id = 2 OR category_id = 3)')->get();
+        $categories = Menu::selectRaw('distinct price')->get();
+        $categories = Menu::select('price')->distinct()->get();
         dd($categories);
 
     	foreach ($categories as $key => $category) {
