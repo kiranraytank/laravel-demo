@@ -7,11 +7,19 @@ use App\Models\Menu;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 
 class QueryController extends Controller
 {
     public function test()
     {
+        // $route = Route::current();
+        // $name = Route::currentRouteName();
+        // $action = Route::currentRouteAction();
+        // dump($route);
+        // dump($name);
+        // dump($action);
+        // dd('done');
     	// $categories = Category::all();
     	// $categories = Category::where('name', 'chinese')->get();
     	// $categories = Category::where('name', '!=', 'chinese')->get();
@@ -99,5 +107,11 @@ class QueryController extends Controller
             //     dump($menu->name);
             // }
     	}
+    }
+
+    public function home()
+    {
+        dd('123');
+        return view('home');
     }
 }
