@@ -12,14 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('pages.home');
+})->name('home');
 
-Route::get('home', function () {
-    return view('home');
-});
+Route::get('user/about', function () {
+    return view('pages.about');
+})->name('about');
 
-Route::get('home', 'QueryController@home');
+// Route::get('home', function () {
+//     return view('home');
+// });
+
+// Route::get('home', 'QueryController@home');
 Route::get('queries', 'QueryController@test')->name('queries');
 Route::get('test', function(){
 	dd('test');
