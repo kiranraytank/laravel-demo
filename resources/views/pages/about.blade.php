@@ -222,9 +222,9 @@
                 <div class="barner-text">
                     <h1>About <span>Us</span></h1>
                     <ul class="page-location">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
                         <li><i class="fa fa-angle-right"></i></li>
-                        <li class="active"><a href="about-us.html">About Us</a></li>
+                        <li class="active"><a href="{{ route('about') }}">About Us</a></li>
                     </ul>
                 </div>
             </div>

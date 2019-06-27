@@ -196,56 +196,6 @@
     </section>
     <!--MENUS AREA END-->
 
-    <!--EVENT AREA-->
-    <section class="event-area section-padding">
-        <div class="event-area-bg"></div>
-        <div class="container wow fadeIn">
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="area-title text-center">
-                        <h2>Events</h2>
-                        <h3>Next Comeing</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row event-list">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="single-event">
-                        <div class="event-img">
-                            <img src="{{ asset('front/img/event/event_1.jpg') }}" alt="">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-date">
-                                <p><span>22</span>December</p>
-                            </div>
-                            <div class="event-details">
-                                <h3><a href="single-event.html">Ktherine Ryan to host Event Awards 2017</a></h3>
-                                <p class="event-meta"><a href="#">29 September 2017 </a>- 196 Manhattan, MY, USA</p>
-                                <p>Comedian Katherine Ryan will present this year's Event Awards on 13 October at the iconic Eventim Apollo in Hammersmith, London.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-event">
-                        <div class="event-img">
-                            <img src="{{ asset('front/img/event/event_2.jpg') }}" alt="">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-date">
-                                <p><span>22</span>December</p>
-                            </div>
-                            <div class="event-details">
-                                <h3><a href="single-event.html">Ktherine Ryan to host Event Awards 2017</a></h3>
-                                <p class="event-meta"><a href="#">29 September 2017 </a>- 196 Manhattan, MY, USA</p>
-                                <p>Comedian Katherine Ryan will present this year's Event Awards on 13 October at the iconic Eventim Apollo in Hammersmith, London.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--EVENT AREA END-->
-
     <!--TEAM AREA-->
     <section class="team-area section-padding">
         <div class="container wow fadeIn">
@@ -259,7 +209,19 @@
             </div>
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 team-slider">
-                    <div class="single-team-member text-center">
+                    @foreach($staff as $st)
+                        <div class="single-team-member text-center">
+                            <div class="team-member-img ">
+                                <img src="{{ asset('front/img/team/team-1.jpg') }}" alt="">
+                            </div>
+                            <div class="member-details">
+                                <h3>{{ $st->name }}</h3>
+                                <p>{{ $st->email }}</p>
+                                <p>{{ $st->mobile }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                    {{-- <div class="single-team-member text-center">
                         <div class="team-member-img ">
                             <img src="{{ asset('front/img/team/team-1.jpg') }}" alt="">
                             <div class="member-social-bookmark">
@@ -348,54 +310,13 @@
                             <h3>Park Ji Sung</h3>
                             <p>Cras senunc massa quisque tempor dolor sit amet </p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
     </section>
     <!--TEAM AREA END-->
-
-    <!--BLOG AREA-->
-    <section class="blog-area section-padding">
-        <div class="container wow fadeIn">
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="area-title text-center">
-                        <h2>News</h2>
-                        <h3>Form The Blog</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                    <div class="single-post text-center">
-                        <div class="blog-post-img ">
-                            <img src="{{ asset('front/img/blog/blog-1.jpg') }}" alt="">
-                        </div>
-                        <div class="post-details">
-                            <a href="#" class="post-meta-button">Life style</a>
-                            <h3><a href="single-blog.html">Gravida posure quam eraseno seque rutrume rigular </a></h3>
-                            <p class="post-meta"><a href="#">24 February, 2017</a> - <a href="#">5 Comments</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                    <div class="single-post text-center">
-                        <div class="blog-post-img ">
-                            <img src="{{ asset('front/img/blog/blog-2.jpg') }}" alt="">
-                        </div>
-                        <div class="post-details">
-                            <a href="#" class="post-meta-button">events</a>
-                            <h3><a href="single-blog.html">Gravida posure quam eraseno seque rutrume rigular </a></h3>
-                            <p class="post-meta"><a href="#">24 February, 2017</a> - <a href="#">5 Comments</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--BLOG AREA END-->
-
+    
     <!--INSTAGRAM FEED-->
     <section class="instagram-area section-padding">
         <div class="container wow fadeIn">

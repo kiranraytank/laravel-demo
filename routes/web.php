@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+Route::get('/', 'PageController@home')->name('home');
+Route::get('about', 'PageController@about')->name('about');
+Route::get('menu', 'PageController@menu')->name('menu');
+Route::get('contact', 'PageController@contact')->name('contact');
 
-Route::get('user/about', function () {
-    return view('pages.about');
-})->name('about');
+// Route::get('user/about', function () {
+//     return view('pages.about');
+// })->name('about');
 
 // Route::get('home', function () {
 //     return view('home');

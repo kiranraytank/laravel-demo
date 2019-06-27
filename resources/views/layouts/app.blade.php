@@ -84,6 +84,7 @@
     <script src="{{ asset('front/js/contact-form.js') }}"></script>
     <script src="{{ asset('front/js/jquery.sticky.js') }}"></script>
 
+    @stack('scripts')
     <!--===== ACTIVE JS=====-->
     <script src="{{ asset('front/js/main.js') }}"></script>
 

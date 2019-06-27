@@ -1060,9 +1060,9 @@ p.event-meta::after {
     width: 100%;
 }
 
-.single-team-member:hover .team-member-img::after {
+/*.single-team-member:hover .team-member-img::after {
     opacity: 0.5;
-}
+}*/
 
 .team-member-img img {
     width: 100%;

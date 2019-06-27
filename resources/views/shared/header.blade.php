@@ -15,9 +15,9 @@
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-6 col-sm-4">
-                        <div class="book-table-popup">
+                        {{-- <div class="book-table-popup">
                             <a href="reservation.html">Book a table</a>
-                        </div>
+                        </div> --}}
                         <div class="top-social-bookmark">
                             <ul>
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -44,8 +44,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="index.html" class="navbar-brand"><img src="{{ asset('front/img/main_logo_black.png') }}" alt="logo"></a>
-                        <a href="index.html" class="navbar-brand white"><img src="{{ asset('front/img/main_logo.png') }}" alt="logo"></a>
+                        <a href="{{ route('home') }}" class="navbar-brand"><img src="{{ asset('front/img/main_logo_black.png') }}" alt="logo"></a>
+                        <a href="{{ route('home') }}" class="navbar-brand white"><img src="{{ asset('front/img/main_logo.png') }}" alt="logo"></a>
                     </div>
                     <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
                         <div class="search-form-area">
@@ -62,11 +62,8 @@
                             <li @if(Route::is('home')) class="active" @endif><a href="{{ route('home') }}">Home</a></li>
                             <!-- <li><a href="{{ url('about') }}">about us</a></li> -->
                             <li @if(Route::is('about')) class="active" @endif><a href="{{ route('about') }}">about us</a></li>
-                            <li><a href="reservation.html">Reservation</a></li>
-                            <li><a href="events.html">Events</a></li>
-                            <li><a href="menu.html">Menu</a></li>
-                            <li><a href="blog.html">blog</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li @if(Route::is('menu')) class="active" @endif><a href="{{ route('menu') }}">Menu</a></li>
+                            <li @if(Route::is('contact')) class="active" @endif><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
