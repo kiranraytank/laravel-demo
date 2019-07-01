@@ -18,6 +18,7 @@ class CreateMenusTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('name');
             $table->double('price', 6, 2);
+            $table->boolean('special')->default(0);
             $table->boolean('active')->default(1);
             $table->timestamps();
 

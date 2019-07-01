@@ -46,7 +46,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                @foreach($specialMenus as $menu)
+                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                        <div class="single-promotions text-center">
+                            <div class="promotions-img">
+                                <img src="{{ asset('front/img/promotions/promo_1.jpg') }}" alt="">
+                                <div class="pakage-rate">
+                                    <p><span>Rs. {{ $menu->price }}</span></p>
+                                </div>
+                            </div>
+                            <div class="promotions-details">
+                                <h4>Special {{ $menu->name }}</h4>
+                                <a href="#" class="read-more">Order now</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                {{-- <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="single-promotions text-center">
                         <div class="promotions-img">
                             <img src="{{ asset('front/img/promotions/promo_1.jpg') }}" alt="">
@@ -87,7 +103,7 @@
                             <a href="#" class="read-more">Order now</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -109,17 +125,32 @@
                     <div class="food-menu-list-menu">
                         <ul>
                             <li class="filter active" data-filter="all">All</li>
-                            <li class="filter" data-filter=".breakfast">Breakfast</li>
+                            @foreach($categories as $category)
+                                {{-- @dump($category->getOriginal('name')) --}}
+                                <li class="filter" data-filter=".cat-{{ strtolower(str_replace(' ','-', $category->name)) }}">{{ $category->name }}</li>
+                            @endforeach
+                            {{-- <li class="filter" data-filter=".breakfast">Breakfast</li>
                             <li class="filter" data-filter=".lunch">Lunch</li>
                             <li class="filter" data-filter=".dinner">Dinner</li>
                             <li class="filter" data-filter=".coffee">Coffe</li>
-                            <li class="filter" data-filter=".snacks">Snacks</li>
+                            <li class="filter" data-filter=".snacks">Snacks</li> --}}
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="row food-menu-list">
-                <div class="mix col-md-3 col-lg-3 col-sm-6 col-xs-12 single-menu breakfast coffee snacks">
+                @foreach($menus as $menu)
+                    <div class="mix col-md-3 col-lg-3 col-sm-6 col-xs-12 single-menu cat-{{ strtolower(str_replace(' ','-', $menu->category->name)) }}">
+                        <div class="food-menu-img">
+                            <a href="{{ asset('front/img/menu/menu_1.jpg') }}" class="menu-popup" data-effect="mfp-zoom-out"><img src="{{ asset('front/img/menu/menu_1.jpg') }}" alt=""></a>
+                        </div>
+                        <div class="food-menu-details">
+                            <h4>{{ $menu->name }}</h4>
+                            <p class="menu-price">Rs. {{ $menu->price }}</p>
+                        </div>
+                    </div>
+                @endforeach
+                {{-- <div class="mix col-md-3 col-lg-3 col-sm-6 col-xs-12 single-menu breakfast coffee snacks">
                     <div class="food-menu-img">
                         <a href="{{ asset('front/img/menu/menu_1.jpg') }}" class="menu-popup" data-effect="mfp-zoom-out"><img src="{{ asset('front/img/menu/menu_1.jpg') }}" alt=""></a>
                     </div>
@@ -190,7 +221,7 @@
                         <h4>Cupcake Recipes</h4>
                         <p class="menu-price">$120.00</p>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -199,7 +230,7 @@
     <!--TEAM AREA-->
     <section class="team-area section-padding">
         <div class="container wow fadeIn">
-            <div class="row">
+            <div class="row"> 
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="area-title text-center">
                         <h2>Delicius</h2>

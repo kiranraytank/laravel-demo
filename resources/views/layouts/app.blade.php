@@ -65,7 +65,8 @@
     @include('shared.footer')
 
     <!--====== SCRIPTS JS ======-->
-    <script src="{{ asset('front/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    {{-- <script src="{{ asset('front/js/vendor/jquery-1.12.4.min.js') }}"></script> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('front/js/vendor/bootstrap.min.js') }}"></script>
 
     <!--====== PLUGINS JS ======-->
@@ -91,5 +92,14 @@
     {{-- <script type="text/javascript">
         $('.nav li a[href="{{ Request::url() }}"]').parent('li').addClass('active');
     </script> --}}
+
+    <script type="text/javascript">
+        $(function(){
+            $('#btnLogout').click(function(event){
+                event.preventDefault();
+                $('#frmLogout').submit();
+            });
+        });
+    </script>
 </body>
 </html>

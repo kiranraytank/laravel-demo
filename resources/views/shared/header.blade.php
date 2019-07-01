@@ -64,6 +64,17 @@
                             <li @if(Route::is('about')) class="active" @endif><a href="{{ route('about') }}">about us</a></li>
                             <li @if(Route::is('menu')) class="active" @endif><a href="{{ route('menu') }}">Menu</a></li>
                             <li @if(Route::is('contact')) class="active" @endif><a href="{{ route('contact') }}">Contact</a></li>
+                            @guest
+                                <li @if(Route::is('login')) class="active" @endif><a href="{{ route('login') }}">Login</a></li>
+                                <li @if(Route::is('register')) class="active" @endif><a href="{{ route('register') }}">Register</a></li>
+                            @endguest
+                            @auth
+                                <li @if(Route::is('dashboard')) class="active" @endif><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                                <li><a href="{{ route('logout') }}" id="btnLogout">Logout</a></li>
+                                <form class="hide" id="frmLogout" action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                </form>
+                            @endauth
                         </ul>
                     </div>
                 </div>

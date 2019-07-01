@@ -43,3 +43,7 @@ Route::group(['prefix' => 'user/abc', 'namespace' => 'Auth'], function(){
 		dd('register');
 	});
 });
+
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+Auth::routes();

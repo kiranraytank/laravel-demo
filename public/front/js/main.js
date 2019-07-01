@@ -113,7 +113,7 @@ jQuery(document).on('ready', function ($) {
     /*---------------------------
         SMOOTH SCROLL
     -----------------------------*/
-    $('a.scrolltotop, .slider-area h3 a, .navbar-header a, ul#nav a').on('click', function (event) {
+    $('a.scrolltotop, .slider-area h3 a, .navbar-header a').on('click', function (event) {
         var id = $(this).attr("href");
         var offset = 40;
         var target = $(id).offset().top - offset;
