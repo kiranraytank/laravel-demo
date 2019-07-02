@@ -16,6 +16,8 @@ Route::get('about', 'PageController@about')->name('about');
 Route::get('menu', 'PageController@menu')->name('menu');
 Route::get('contact', 'PageController@contact')->name('contact');
 
+Route::resource('categories', 'CategoryController');
+
 // Route::get('user/about', function () {
 //     return view('pages.about');
 // })->name('about');
