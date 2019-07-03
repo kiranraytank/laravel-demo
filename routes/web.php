@@ -13,10 +13,10 @@
 
 Route::get('/', 'PageController@home')->name('home');
 Route::get('about', 'PageController@about')->name('about');
-Route::get('menu', 'PageController@menu')->name('menu');
+Route::get('front/menu', 'PageController@menu')->name('menu');
 Route::get('contact', 'PageController@contact')->name('contact');
 
-Route::resource('categories', 'CategoryController');
+
 
 // Route::get('user/about', function () {
 //     return view('pages.about');
@@ -32,6 +32,12 @@ Route::get('test', function(){
 	dd('test');
 });
 
+Route::group(['middleware' => ['auth', 'activated']], function(){
+	Route::get('dashboard', 'HomeController@index')->name('dashboard');
+	Route::resource('categories', 'CategoryController');
+	Route::resource('menu', 'MenuController');
+});
+
 Route::group(['prefix' => 'user/abc', 'namespace' => 'Auth'], function(){
 	Route::get('login', function(){
 		$route = Route::current();
@@ -45,7 +51,5 @@ Route::group(['prefix' => 'user/abc', 'namespace' => 'Auth'], function(){
 		dd('register');
 	});
 });
-
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Auth::routes();

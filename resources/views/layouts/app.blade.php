@@ -99,6 +99,28 @@
                 event.preventDefault();
                 $('#frmLogout').submit();
             });
+
+            $('.act-delete').click(function(event){
+                event.preventDefault();
+                // var action = $(this).data('url');
+                // console.log(action);
+                // return false;
+                var action = $(this).attr('href');
+                var $this = $(this);
+                $.ajax({
+                    url: action,
+                    method: 'DELETE',
+                    dataType: 'json',
+                    data: {
+                        _token: "{{ csrf_token() }}", 
+                    },
+                    success: function(r) {
+                        if(r.status == 200) {
+                            $this.closest('tr').remove();
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>

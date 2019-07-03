@@ -3,10 +3,7 @@
 @section('content')
     <div class="row mt-2">
         <div class="col-md-10">
-            <h3>Category List</h3>
-        </div>
-        <div class="col-md-2">
-            <a href="{{ route('categories.create') }}" class="btn btn-success">Add +</a>
+            <h3>Category</h3>
         </div>
     </div>
     <div class="row">
@@ -14,23 +11,13 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Sr no</th>
                         <th>Name</th>
-                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($categories as $key => $cat)
-                        <tr>
-                            <td>{{ $key + 1 }}</td>
-                            <td>{{ $cat->name }}</td>
-                            <td>
-                                <a href="{{ route('categories.show', $cat->id) }}" class="btn btn-info">View</a>
-                                <a href="{{ route('categories.edit', $cat->id) }}" class="btn btn-warning">Edit</a>
-                                <a data-url="{{ route('categories.destroy', $cat->id) }}" href="{{ route('categories.destroy', $cat->id) }}" class="btn btn-danger act-delete">Delete</a>
-                            </td>
-                        </tr>
-                    @endforeach
+                    <tr>
+                        <td>{{ $category->name }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

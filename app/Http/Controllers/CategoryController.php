@@ -58,9 +58,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
+        dd($category);
+        $category = Category::find($id);
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
@@ -71,7 +73,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -83,7 +86,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            // 'name' => ['required', 'string', 'max:80'],
+            'name' => 'required|string|max:80',
+        ];
+
+        $this->formValidation($request->all(), $rules);
+
+        // $category = Category::where(['id' => $id])->update(['name' => $request->name]);
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->save();
+
+        // return redirect('categories');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -92,8 +108,19 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        Category::destroy($id);
+
+        // Category::whereIn(['id' => $id])->delete();
+
+        // $category = Category::find($id);
+        // $category->delete();
+
+        if ($request->ajax()) {
+            return response()->json(['status' => 200]);
+        }
+
+        return redirect()->route('categories.index');
     }
 }
