@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStaffTable extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +12,15 @@ class CreateStaffTable extends Migration
      */
     public function up()
     {
-        Schema::create('staff', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->enum('type', ['admin', 'manager', 'cook', 'delivery_boy', 'waiter']);
+        Schema::create('admins', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
-            $table->string('email');
-            $table->string('mobile');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('mobile')->nullable();
             $table->string('address')->nullable();
             $table->string('profile')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateStaffTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('staff');
+        Schema::drop('admins');
     }
 }
