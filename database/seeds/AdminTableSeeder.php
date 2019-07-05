@@ -15,6 +15,7 @@ class AdminTableSeeder extends Seeder
         $admins = [
         	[
         		'name' => 'Admin',
+                'type' => 'admin',
         		'email' => 'admin@restro.com',
         		'password' => Hash::make('admin@123'),
         		'created_at' => Carbon::now()->toDateTimeString(),

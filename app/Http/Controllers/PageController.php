@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Menu;
-use App\Models\Staff;
+use App\Admin;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -12,7 +12,7 @@ class PageController extends Controller
     public function home() {
         // $staff = factory(Staff::class, 10)->make();
         // $staff = factory(Staff::class, 10)->create();
-        $staff = Staff::where('type', 'cook')->get();
+        $staff = Admin::where('type', 'cook')->get();
         $specialMenus = Menu::where(['active' => 1, 'special' => 1])->get();
         $categories = Category::where('active', 1)->get();
         $menus = Menu::where(['active' => 1])->get();

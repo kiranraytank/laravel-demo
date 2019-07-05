@@ -10,3 +10,6 @@ Route::get('/home', function () {
     return view('admin.home');
 })->name('home');
 
+Route::group(['namespace' => 'Admin'], function(){
+	Route::get('dashboard', 'DashboardController@dashboard');
+});
