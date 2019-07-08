@@ -16,6 +16,7 @@ class RoleTableSeeder extends Seeder
         	[
         		'section_id' => 'Dashboard',
         		'name' => 'Dashboard',
+                'route' => 'admin.dashboard.index',
         		'icon' => 'mdi-home',
         		'sequence' => 1,
         		'permissions' => 'access,download',
@@ -26,6 +27,7 @@ class RoleTableSeeder extends Seeder
         	[
         		'section_id' => 'Manage Categories',
         		'name' => 'Manage Categories',
+                'route' => 'admin.categories.index',
         		'icon' => 'mdi-home',
         		'sequence' => 1,
         		'permissions' => 'access,add,edit,view,delete',
@@ -36,6 +38,7 @@ class RoleTableSeeder extends Seeder
         	[
         		'section_id' => 'Manage Menus',
         		'name' => 'Manage Menus',
+                'route' => 'admin.menus.index',
         		'icon' => 'mdi-home',
         		'sequence' => 1,
         		'permissions' => 'access,add,edit,view,delete',
@@ -46,6 +49,7 @@ class RoleTableSeeder extends Seeder
         	[
         		'section_id' => 'Manage Users',
         		'name' => 'Manage Staff',
+                'route' => 'admin.staff.index',
         		'icon' => 'mdi-home',
         		'sequence' => 1,
         		'permissions' => 'access,add,edit,view,delete',
@@ -56,6 +60,7 @@ class RoleTableSeeder extends Seeder
         	[
         		'section_id' => 'Manage Users',
         		'name' => 'Manage Customers',
+                'route' => 'admin.customers.index',
         		'icon' => 'mdi-home',
         		'sequence' => 2,
         		'permissions' => 'access,add,edit,view,delete',
@@ -66,6 +71,7 @@ class RoleTableSeeder extends Seeder
         	[
         		'section_id' => 'Manage Orders',
         		'name' => 'Manage Orders',
+                'route' => 'admin.orders.index',
         		'icon' => 'mdi-home',
         		'sequence' => 1,
         		'permissions' => 'access,add,edit,view,delete',

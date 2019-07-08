@@ -13,7 +13,34 @@
         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
       </a>
     </li>
-    <li class="nav-item">
+    @foreach($menus as $menu)
+      @if(isset($menu['roles']))
+        @if(count($menu['roles']) > 1)
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">{{ $menu['name'] }}</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi {{ $menu['icon'] }} menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                @foreach($menu['roles'] as $role)
+                  <li class="nav-item"> <a class="nav-link" href="{{ route($role['route']) }}">{{ $role['name'] }}</a></li>
+                @endforeach
+              </ul>
+            </div>
+          </li>
+        @else
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route($menu['roles'][0]['route']) }}">
+              <span class="menu-title">{{ $menu['roles'][0]['name'] }}</span>
+              <i class="mdi {{ $menu['roles'][0]['icon'] }} menu-icon"></i>
+            </a>
+          </li>
+        @endif
+      @endif
+    @endforeach
+{{--     <li class="nav-item">
       <a class="nav-link" href="index.html">
         <span class="menu-title">Dashboard</span>
         <i class="mdi mdi-home menu-icon"></i>
@@ -88,6 +115,6 @@
           </ul>
         </div>
       </span>
-    </li>
+    </li> --}}
   </ul>
 </nav>

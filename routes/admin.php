@@ -10,6 +10,12 @@ Route::get('/home', function () {
     return view('admin.home');
 })->name('home');
 
-Route::group(['namespace' => 'Admin'], function(){
-	Route::get('dashboard', 'DashboardController@dashboard');
+Route::group(['namespace' => 'Admin', 'middleware' => 'permission'], function(){
+	Route::get('dashboard', 'DashboardController@dashboard')->name('dashboard.index');
+
+	Route::resource('categories', 'CategoryController');
+	Route::resource('menus', 'MenuController');
+	Route::resource('staff', 'StaffController');
+	Route::resource('customers', 'CustomerController');
+	Route::resource('orders', 'OrderController');
 });

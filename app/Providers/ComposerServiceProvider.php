@@ -22,8 +22,7 @@ class ComposerServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         View::composer('admin.*', '\App\Http\Viewcomposer\MenuComposer');
     }
 }
