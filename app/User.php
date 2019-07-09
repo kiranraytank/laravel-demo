@@ -52,4 +52,8 @@ class User extends Authenticatable
     public function payments() {
         return $this->hasMany('\App\Models\Payment');
     }
+
+    // public function routeNotificationFor() {
+    //     return $this->username;
+    // }
 }

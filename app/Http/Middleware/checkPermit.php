@@ -52,7 +52,7 @@ class checkPermit
                 $permission = 'download';
             }
             else {
-                $permission = '';
+                $permission = +'';
             }
 
 
