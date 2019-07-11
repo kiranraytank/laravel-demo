@@ -16,4 +16,28 @@ class Controller extends BaseController
     {
     	return Validator::make($data, $rules)->validate();
     }
+
+    /******** API side commons ******************/
+
+    public function apiValidation($data, $rules)
+    {
+        $validation = Validator::make($data, $rules);
+
+        if($validation->fails()) {
+            $this->response['message'] = $validation->errors()->all()[0];
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public $status = 412;
+    public $response = ['data' => null, 'message' => ""];
+
+    public function return_response() {
+    	return response()->json($this->response, $this->status);
+    }
+
+    /******** API side commons ******************/
+
 }

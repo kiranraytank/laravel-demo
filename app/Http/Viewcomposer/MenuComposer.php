@@ -19,6 +19,7 @@ class MenuComposer
 			
 			foreach ($sections as $section) {
 				$menu_data = [];
+				$menu_data['section_id'] = $section->id;
 				$menu_data['name'] = $section->name;
 				$menu_data['icon'] = $section->icon;
 

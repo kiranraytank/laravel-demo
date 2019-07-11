@@ -8,6 +8,7 @@ use App\Mail\OrderMail;
 use App\Models\Category;
 use App\Models\Menu;
 use App\Notifications\OrderNotifiation;
+use App\Notifications\TestNotification;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -17,9 +18,12 @@ class PageController extends Controller
     public function home() {
         // Mail::to('chiragpatel1295@gmail.com')->send(new OrderMail());
         $user = User::find(2);
-        $user->notify(new OrderNotifiation());
-        // Mail::to($user->email)->send(new MarkdownMail($user));
-        dd('mail sent');
+        $message = "Test Message";
+        $user->notify(new TestNotification($message));
+        // $user->notify(new OrderNotifiation());
+        //dd($user->notify(new OrderNotifiation()));
+        //Mail::to($user->email)->send(new MarkdownMail($user));
+        //dd('mail sent');
 
         // $staff = factory(Staff::class, 10)->make();
         // $staff = factory(Staff::class, 10)->create();

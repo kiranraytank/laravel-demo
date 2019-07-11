@@ -17,12 +17,12 @@
       @if(isset($menu['roles']))
         @if(count($menu['roles']) > 1)
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#ui-{{ $menu['section_id'] }}" aria-expanded="false" aria-controls="ui-{{ $menu['section_id'] }}">
               <span class="menu-title">{{ $menu['name'] }}</span>
               <i class="menu-arrow"></i>
               <i class="mdi {{ $menu['icon'] }} menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="ui-{{ $menu['section_id'] }}">
               <ul class="nav flex-column sub-menu">
                 @foreach($menu['roles'] as $role)
                   <li class="nav-item"> <a class="nav-link" href="{{ route($role['route']) }}">{{ $role['name'] }}</a></li>

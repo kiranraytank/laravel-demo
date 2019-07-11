@@ -20,7 +20,7 @@ class checkPermit
     {
         if(!empty(Auth::user())) {
             $user_permissions = unserialize(Auth::user()->permissions);
-            // dump($user_permissions);
+            // dd($user_permissions);
             $current_routeName = Route::currentRouteName();
             $routeName = substr($current_routeName, 0, strrpos($current_routeName, '.'));
             $method = substr($current_routeName, strrpos($current_routeName, '.') + 1);
