@@ -17,9 +17,9 @@ class PageController extends Controller
 {
     public function home() {
         // Mail::to('chiragpatel1295@gmail.com')->send(new OrderMail());
-        $user = User::find(2);
-        $message = "Test Message";
-        $user->notify(new TestNotification($message));
+        // $user = User::find(2);
+        // $message = "Test Message";
+        // $user->notify(new TestNotification($message));
         // $user->notify(new OrderNotifiation());
         //dd($user->notify(new OrderNotifiation()));
         //Mail::to($user->email)->send(new MarkdownMail($user));

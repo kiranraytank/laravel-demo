@@ -20,4 +20,12 @@ use Illuminate\Http\Request;
 Route::group(['namespace' => 'api\v1', 'prefix' => 'v1'], function(){
 	Route::post('categories', 'GeneralController@categories');
 	Route::post('menus', 'GeneralController@menus');
+	Route::post('login', 'UserController@login');
+	Route::post('register', 'UserController@register');
+});
+
+Route::group(['namespace' => 'api\v1', 'prefix' => 'v1', 'middleware' => 'auth:api'], function(){
+	Route::post('profile', 'UserController@myProfile');
+	Route::post('profile/edit', 'UserController@editProfile');
+	Route::post('logout', 'UserController@logout');
 });
